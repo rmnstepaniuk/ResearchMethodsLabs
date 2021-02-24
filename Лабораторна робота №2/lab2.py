@@ -6,7 +6,7 @@
 
 import random, math, numpy as np
 
-# Функція знаходження середьного значення
+# Функція знаходження середнього значення
 def average(list_y):
     average = 0
     for y in list_y:
