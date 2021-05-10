@@ -1,6 +1,7 @@
 import math, random, numpy as np
 from scipy.stats import f
 from sklearn import linear_model as lm
+from time import time
 
 def average(list):
     average = 0
@@ -25,7 +26,7 @@ def coef_b(x, y):
 
 def cochrane_criteria():
     global k, N
-
+    start = time()
     gp_denominator = 0
     for disp in dispersion_list:
         gp_denominator += disp
@@ -35,11 +36,16 @@ def cochrane_criteria():
     f2 = N
     gt = 0.3346
 
-    if gp < gt: return True
-    else: return False
+    if gp < gt: 
+        print(f"Час виконання перевірки за критерієм Кохрена: {time() - start}")
+        return True
+    else: 
+        print(f"Час виконання перевірки за критерієм Кохрена: {time() - start}")
+        return False
 
 def students_criteria(b):
     global k, N
+    start = time()
     sb = average(dispersion_list)
     
     s_beta_2 = sb / (N * k)
@@ -58,11 +64,12 @@ def students_criteria(b):
         else: 
             student_check[i] = 0
             b[i] = 0
-
+    print(f"Час виконання перевірки за критерієм Стьюдента: {time() - start}")
     return student_check
 
 def fisher_criteria():
     global k, N
+    start = time()
     d = 0
     for key in students_criteria:
         if students_criteria[key] != 0: d += 1
@@ -82,9 +89,11 @@ def fisher_criteria():
 
     if fp > f.ppf(q=0.95, dfn=f4, dfd=f3):
         print("\nРівняння регресії неадекватно оригіналу при рівні значимості 0.05")
+        print(f"Час виконання перевірки за критерієм Фішера: {time() - start}")
         return True
     else:
         print("\nРівняння регресії адекватно оригіналу при рівні значимості 0.05")
+        print(f"Час виконання перевірки за критерієм Фішера: {time() - start}")
         return False
 
 x_min = [-1, -10, -8]
