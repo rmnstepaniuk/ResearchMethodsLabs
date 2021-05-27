@@ -9,5 +9,5 @@ This repository contains laboratory work on the subject "Research Methods"
 - [x] [Лабораторна робота №3 | Laboratory work №3](https://drive.google.com/drive/folders/1SnQ0c2isRBpNcHSCZmIlt-ZI_wA_MRar?usp=sharing)
 - [x] [Лабораторна робота №4 | Laboratory work №4](https://drive.google.com/drive/folders/1tkRFJCrUellKnZ4jyvnCBO9eVBYRMPB2?usp=sharing)
 - [x] [Лабораторна робота №5 | Laboratory work №5](https://drive.google.com/drive/folders/13AwlLGxv5h6iy5KtcDCy9QZ7xjyARXuT?usp=sharing)
-- [ ] [Лабораторна робота №6 | Laboratory work №6](https://drive.google.com/drive/folders/1VVEtN9xrrbaLQSVAVRfvkkWpDYclIxfW?usp=sharing)
+- [x] [Лабораторна робота №6 | Laboratory work №6](https://drive.google.com/drive/folders/1VVEtN9xrrbaLQSVAVRfvkkWpDYclIxfW?usp=sharing)
 --------------------------------------------------------------------------
