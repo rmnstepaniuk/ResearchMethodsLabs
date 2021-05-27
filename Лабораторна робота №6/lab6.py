@@ -1,4 +1,4 @@
-import random, math
+import random, math, time
 from sklearn import linear_model as lm
 from scipy.stats import f
 from numpy.linalg import det
@@ -37,7 +37,8 @@ def coef_b(x, y):
     return b
 def adequacy(b):
     def cochrane_criteria():
-        global k, N
+        global k, N, check_time
+        start = time.time()
         gp_denominator = 0
         for disp in dispersion_list:
             gp_denominator += disp
@@ -48,8 +49,10 @@ def adequacy(b):
         gt = 0.3346
 
         if gp < gt: 
+            check_time = time.time() -start
             return True
         else: 
+            check_time = time.time() -start
             return False
 
     def students_criteria(b):
@@ -101,8 +104,12 @@ def adequacy(b):
             return False
     
     # Перевірка однорідності дисперсії за критерієм Кохрена
+    check_time = 0
     print(f"\nПеревірка однорідності дисперсії за критерієм Кохрена...")
     cochrane_criteria = cochrane_criteria()
+    if (check_time > 0.1):
+        print("Час перевірки однорідності дисперсії більше 0.1 секунди\nМодель неадекватна")
+        exit()
     if cochrane_criteria: print("\nДисперсія однорідна")
     else: 
         print("\nДисперсія неоднорідна")
